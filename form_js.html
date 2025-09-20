@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <style>
+        .buttonblock {
+            text-align: center;
+        }
+
+        form {
+            margin: 50px 200px;
+            padding: 30px;
+            border: 2px solid black;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 70px;
+            ;
+        }
+
+        input {
+            text-align: left;
+            align-items: center;
+        }
+
+        textarea {
+            width: 100%;
+            height: 250px;
+        }
+
+        body {
+            background-color: gray;
+        }
+
+        form {
+            background-color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <form name="form1" method="post">
+        <h1>동아리 신청서</h1>
+
+        <h3>개인정보</h3>
+
+        <label for="fname">이름:</label>
+        <input type="text" name="name" onchange="namecheck()" placeholder="ex.홍길동"><br>
+
+        <label for="phone">전화번호:</label>
+        <input type="tel" name="phone" onchange="phonecheck()" placeholder="010-xxxx-xxxx"><br>
+
+        <label for="major">학과:</label>
+        <input list="majorlist" name="major"><br>
+
+        <label for="gender">성별:</label>
+        <input type="radio" name="gender" value="남">남
+        <input type="radio" name="gender" value="여">여
+        <br>
+
+        <label for="birthday">생년월일:</label>
+        <input type="date" name="birthday" value="생일">
+
+        <h3>악기</h3>
+        <input type="checkbox" name="instrument">
+        <label for="gender">보컬</label><br>
+        <input type="checkbox" name="instrument">
+        <label for="gender">일렉트릭 기타</label><br>
+        <input type="checkbox" name="instrument">
+        <label for="gender">베이스 기타</label><br>
+        <input type="checkbox" name="instrument">
+        <label for="gender">드럼</label><br>
+        <input type="checkbox" name="instrument">
+        <label for="gender">관악기</label><br>
+        <input type="checkbox" name="instrument">
+        <label for="gender">키보드/신디사이저</label><br>
+
+        <br>
+        <h3>자기소개서</h3>
+        <textarea placeholder="간단한 자기소개 및 동아리신청동기"></textarea>
+        <div class="buttonblock">
+            <button onclick="make_sure()" style="width: 100px; height: 50px; ">제출</button>
+        </div>
+
+
+        <datalist id="majorlist">
+            <option value="전산전자공학부" label="전산전자공학부">
+            <option value="글로벌리더십학부" label="글로벌리더십학부">
+            <option value="국제어문학부" label="국제어문학부">
+            <option value="경영경제학부" label="경영경제학부">
+            <option value="법학부" label="법학부">
+            <option value="커뮤니케이션학부" label="커뮤니케이션학부">
+            <option value="공간환경시스템학부" label="공간환경시스템학부">
+            <option value="기계제어공학부" label="기계제어공학부">
+            <option value="콘텐츠융합디자인학부" label="콘텐츠융합디자인학부">
+            <option value="생명과학부" label="생명과학부">
+            <option value="상담심리사회복지학부" label="상담심리사회복지학부">
+            <option value="AI융합학부" label="AI융합학부">
+        </datalist>
+    </form>
+    <script>
+        function make_sure() {
+            if (confirm("제출하시겠습니까?")) {
+                alert("정상적으로 제출되었습니다.");
+                return;
+            }
+            alert("제출 취소되었습니다");
+        }
+        function namecheck() {
+            var name = document.form1.name;
+            if (name.value.length < 2) {
+                alert('이름형식을 정확하게 입력해주세요')
+                name.focus(); //입력실패시 web집중이 입력쪽으로 가기.
+                return false;
+            }
+        }
+        function phonecheck() {
+            var phone = document.form1.phone;
+            if (phone.value.length < 11) {
+                alert('전화번호 형식을 정확하게 입력해주세요')
+                phone.focus(); //입력실패시 web집중이 입력쪽으로 가기.
+                return false;
+            }
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <style>
+        .blue {
+            background-color: blue;
+        }
+
+        .green {
+            background-color: green;
+        }
+
+        button {
+            color: white;
+        }
+        input{
+            background-color: rgb(193, 246, 255);
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Dynamic Web page</h1>
+    <form name="form1">
+        <input type="text" name="fruit"> <button class="blue" type="button" onclick="addstuff()">추가</button><button class="green" type="button"
+            onclick="deleteall()">삭제</button>
+    </form>
+    <ul id="main">
+    </ul>
+</body>
+<script>
+    function addstuff() {
+        var newstuff = document.form1.fruit.value;
+
+        var ul = document.getElementById("main");
+        ul.insertAdjacentHTML("afterbegin", `<li>${newstuff}</li>`);
+
+    }
+    function deleteall() {
+        var ul = document.getElementById("main");
+        ul.innerHTML = "";
+    }
+</script>
+
+</html>
